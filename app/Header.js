@@ -8,7 +8,7 @@ export default function Header() {
         <div className="container flex flex-wrap items-center justify-between mx-auto">
           <Link href="https://flowbite.com/" className="flex items-center">
             <Image
-              src="../public/leaf-icon.svg"
+              src="./leaf-icon.svg"
               width={200}
               height={200}
               className="h-6 mr-3 sm:h-9"
