@@ -1,0 +1,2 @@
+- [ ] remove firebase package & configs
+- [ ] write a setup readme that includes how to setup the supabase/postgres db
