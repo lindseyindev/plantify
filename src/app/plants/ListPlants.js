@@ -1,16 +1,14 @@
-import PostImages from "./PostImages";
+import Card from "./Card";
 
-export default function ListPlants({ posts }) {
+export default function ListPlants({ plants }) {
 
-  console.log({posts})
+  console.log({plants})
   return (
-    <div>
-      {posts.map((post) => {
+    <div className="flex row">
+      {plants.map((plant) => {
         return (
-          <div key={post.id}>
-            <h3>{post.title}</h3>
-            <p>{post.content}</p>
-            <PostImages images={post.images} />
+          <div key={plant.id}>
+            <Card plant={plant} />
           </div>
         );
       })}

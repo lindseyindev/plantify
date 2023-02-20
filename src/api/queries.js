@@ -9,6 +9,13 @@ export async function fetchPosts(plantId) {
   // setPosts(data)
 }
 
+export async function fetchPlants(userId) {
+  //const { data } = await supabase.from('posts').select()
+  const data = testPlantData;
+  console.log("post data: ", data, { userId });
+  return data;
+}
+
 export async function fetchUser() {
   const data = testUser;
   return data;
