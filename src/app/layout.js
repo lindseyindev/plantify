@@ -1,13 +1,10 @@
 // Global app layout
 import "./globals.css";
-import Header from "./Header.js"
+import Header from "./Header.js";
 
 export default function RootLayout({ children }) {
-
   // const [posts, setPosts] = useState([])
   // const [post, setPost] = useState({})
-
-
 
   // useEffect(() => {
 
@@ -25,9 +22,7 @@ export default function RootLayout({ children }) {
       <body>
         <Header />
         <main>{children}</main>
-        <footer>
-          TODO: Footer
-        </footer>
+        <footer>TODO: Footer</footer>
       </body>
     </html>
   );

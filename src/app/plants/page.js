@@ -1,44 +1,37 @@
-'use client'
-import { useState, useEffect } from 'react'
-import PostForm from "./Form"
-import Posts from "./Posts"
-import {
-	fetchPosts,
-    createPost
-} from '../api';
+"use client";
+import { useState, useEffect } from "react";
+import PostForm from "./Form";
+import ListPlants from "./ListPlants";
+import { fetchPosts } from "../../api";
 
-export default function Page(props) {
-    const [posts, setPosts] = useState([])
-    const [post, setPost] = useState({})
+export default function Plants(props) {
+  const [posts, setPosts] = useState([]);
+  const [post, setPost] = useState({});
 
-    useEffect(() => {
-        setPosts(fetchPosts)
-    }, [])
+  //display date .toLocaleString('en-US')
+  useEffect(() => {
+    fetchPosts(4).then((data) => {
+      setPosts(data)
+    })
+  }, []);
 
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setPost({...post, [name]: value});
-    }
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setPost({ ...post, [name]: value });
+  };
 
-    const handleSubmitPost = (e) => {
-        e.preventDefault()
-        createPost(post)
-        setPost({})
-        setPosts(fetchPosts());
-    }
+  const handleSubmitPost = (e) => {
+    e.preventDefault();
+    //createPost(post);
+    setPosts([...posts, post]);
+    setPost({});
+    //setPosts(fetchPosts());
+  };
 
-    return (
-        <div>
-        <PostForm 
-            handleInputChange={handleInputChange}
-            post={post}
-            handleSubmitPost={handleSubmitPost}
-        />
-        <Posts
-            posts={posts}
-        />
-        </div>
-    )
+  return (
+    <div className="list-plants">
+        YES LIST PLANTS
+      <ListPlants posts={posts} />
+    </div>
+  );
 }
-
-//use fetch server props and api calls 
